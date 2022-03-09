@@ -2,32 +2,32 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="21058" started-at="2022-03-09T03:43:25Z" finished-at="2022-03-09T03:43:47Z">
+  <suite name="Suite" duration-ms="20496" started-at="2022-03-09T03:51:54Z" finished-at="2022-03-09T03:52:14Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="21058" started-at="2022-03-09T03:43:25Z" finished-at="2022-03-09T03:43:47Z">
+    <test name="Test" duration-ms="20496" started-at="2022-03-09T03:51:54Z" finished-at="2022-03-09T03:52:14Z">
       <class name="tests.Tests_SearchSongs">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.Tests_SearchSongs@35a50a4c]" name="beforeMethod" is-config="true" duration-ms="2699" started-at="2022-03-09T03:43:25Z" finished-at="2022-03-09T03:43:28Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.Tests_SearchSongs@35a50a4c]" name="beforeMethod" is-config="true" duration-ms="2866" started-at="2022-03-09T03:51:54Z" finished-at="2022-03-09T03:51:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="SearchingSongsBySongName()[pri:0, instance:tests.Tests_SearchSongs@35a50a4c]" name="SearchingSongsBySongName" duration-ms="9684" started-at="2022-03-09T03:43:28Z" finished-at="2022-03-09T03:43:38Z">
+        <test-method status="PASS" signature="SearchingSongsBySongName()[pri:0, instance:tests.Tests_SearchSongs@35a50a4c]" name="SearchingSongsBySongName" duration-ms="9105" started-at="2022-03-09T03:51:57Z" finished-at="2022-03-09T03:52:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchingSongsBySongName -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:tests.Tests_SearchSongs@35a50a4c]" name="afterMethod" is-config="true" duration-ms="131" started-at="2022-03-09T03:43:38Z" finished-at="2022-03-09T03:43:38Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:tests.Tests_SearchSongs@35a50a4c]" name="afterMethod" is-config="true" duration-ms="76" started-at="2022-03-09T03:52:06Z" finished-at="2022-03-09T03:52:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.Tests_SearchSongs@35a50a4c]" name="beforeMethod" is-config="true" duration-ms="951" started-at="2022-03-09T03:43:38Z" finished-at="2022-03-09T03:43:39Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:tests.Tests_SearchSongs@35a50a4c]" name="beforeMethod" is-config="true" duration-ms="966" started-at="2022-03-09T03:52:06Z" finished-at="2022-03-09T03:52:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="SearchingSongsByArtist()[pri:1, instance:tests.Tests_SearchSongs@35a50a4c]" name="SearchingSongsByArtist" duration-ms="7504" started-at="2022-03-09T03:43:39Z" finished-at="2022-03-09T03:43:46Z">
+        <test-method status="PASS" signature="SearchingSongsByArtist()[pri:1, instance:tests.Tests_SearchSongs@35a50a4c]" name="SearchingSongsByArtist" duration-ms="7394" started-at="2022-03-09T03:52:07Z" finished-at="2022-03-09T03:52:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchingSongsByArtist -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:tests.Tests_SearchSongs@35a50a4c]" name="afterMethod" is-config="true" duration-ms="75" started-at="2022-03-09T03:43:46Z" finished-at="2022-03-09T03:43:47Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:tests.Tests_SearchSongs@35a50a4c]" name="afterMethod" is-config="true" duration-ms="75" started-at="2022-03-09T03:52:14Z" finished-at="2022-03-09T03:52:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->

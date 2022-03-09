@@ -10,8 +10,10 @@ Prerequisite to run the project
 **To run the project in your command line in local pc**
 1. Download the project.
 2. Install maven
-3. copy the directory of the project folder by "cd (project folder)"
-4. use the command "mvn test" or "mvn clean test" or "mvn clean test testng.xml"
+3. Open terminal/command line
+4. copy the directory of the project folder by "cd (project folder)"
+5. use the command "mvn test" or "mvn clean test"
+6. View the results in command line with printing the result.
 
 
 
