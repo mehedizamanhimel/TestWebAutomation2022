@@ -1,29 +1,21 @@
 # TestWebAutomation2022
 
-To Run the project on docker: 
-1. start your docker in your preferable machine.
-2. run the command "docker pull "(this will downlaod the project image in your machine)
-3. run the command "docker run "(this will run the project on your command line)
 
-
-To run the project in your command line in local pc: 
-1. Download the project.
-2. Install maven
-3. copy the directory of the project folder by "cd (project folder)"
-4. use the command "mvn test" or "mvn clean test" or "mvn test testng.xml"
-
-
-
-For running the project in your local machine via IDE:
-
+**For running the project in your local machine via IDE:**
 Prerequisite to run the project 
 1. JDK
 2. Java IDE (Eclipse/Intellij)
 
 
+**To run the project in your command line in local pc**
+1. Download the project.
+2. Install maven
+3. copy the directory of the project folder by "cd (project folder)"
+4. use the command "mvn test" or "mvn clean test" or "mvn clean test testng.xml"
 
 
-The project summery at a glance: 
+
+**The project summery at a glance**
 
 1. Project type: Maven project
 2. Programming Language: Java
@@ -35,7 +27,7 @@ The project summery at a glance:
 
 
 
-Project details in a glance
+**Project execution details in a glance**
 
 Before execution:
 - Maven setup has been done with all the related dependencies, build and plugin data.
@@ -57,3 +49,12 @@ After execution
 	project>target>index.html (need to open in web view)
 	project>target>emailable-report.html (need to open in web view)
 	project>target>surefire-reports>Surefire test (need to open in web view)
+	
+	
+	
+**To Run the project on docker**
+1. start your docker in your preferable machine.
+2. run the command "docker pull "(this will downlaod the project image in your machine)
+3. run the command "docker run "(this will run the project on your command line)
+
+
