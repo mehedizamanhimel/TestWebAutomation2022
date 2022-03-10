@@ -6,4 +6,4 @@ ADD . /usr/src/app
 #RUN export MAVEN_HOME=~/apache-maven-3.8.4
 #RUN export PATH=$PATH:$MAVEN_HOME/bin
 #RUN export PATH=/opt/apache-maven-3.8.4/bin:$PATH
-RUN mvn clean test testng.xml
+RUN mvn clean test
