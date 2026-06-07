@@ -16,87 +16,75 @@ import org.testng.annotations.BeforeMethod;
 import utils.TestData;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class BaseTestClass {
 
     WebDriver driver;
-    static  TestData testData;
-
-    /*
-    Setting up before method.
-    It's a library from TestNG that is being before the test case execution.
-     */
+    static TestData testData;
 
     @BeforeMethod
     public void beforeMethod() throws IOException {
         testData = new TestData();
 
-        /*
-        Here we used WebDriverManager to avoid downloading and storing the browser drivers.
-        We keep the browser name as a property in the property file.
-        The browser that is gonna be used will be uncommented.
-         */
+        String browser = testData.properties.getProperty("browser");
 
-            String browser = testData.properties.getProperty("browser");
-
-            switch (browser) {
-                case "chrome":
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    break;
-
-                case "chrome-headless":
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
-                    break;
-
-                case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    break;
-
-                case "firefox-headless":
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver(new FirefoxOptions().setHeadless(true));
-                    break;
-
-                case "ie":
-                    WebDriverManager.iedriver().setup();
-                    driver = new InternetExplorerDriver();
-                    break;
-
-                case "edge":
-                    WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
-                    break;
-
-                case "safari":
-                    WebDriverManager.getInstance(SafariDriver.class).setup();
-                    driver = new SafariDriver();
-                    break;
+        switch (browser) {
+            case "chrome": {
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions opts = new ChromeOptions();
+                // Required on Linux CI runners regardless of headless mode
+                opts.addArguments("--no-sandbox", "--disable-dev-shm-usage");
+                driver = new ChromeDriver(opts);
+                break;
             }
-
-            driver.manage().window().setSize(new Dimension(1600, 1100));
-            driver.manage().window().setPosition(new Point(0, 0));
-
-
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            case "chrome-headless": {
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions opts = new ChromeOptions();
+                // Use modern --headless=new (Chrome 112+); setHeadless(true) is removed
+                opts.addArguments("--headless=new", "--no-sandbox", "--disable-dev-shm-usage");
+                driver = new ChromeDriver(opts);
+                break;
+            }
+            case "firefox": {
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            }
+            case "firefox-headless": {
+                WebDriverManager.firefoxdriver().setup();
+                FirefoxOptions ffOpts = new FirefoxOptions();
+                // Use addArguments instead of deprecated setHeadless(true)
+                ffOpts.addArguments("-headless");
+                driver = new FirefoxDriver(ffOpts);
+                break;
+            }
+            case "ie": {
+                WebDriverManager.iedriver().setup();
+                driver = new InternetExplorerDriver();
+                break;
+            }
+            case "edge": {
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+            }
+            case "safari": {
+                WebDriverManager.getInstance(SafariDriver.class).setup();
+                driver = new SafariDriver();
+                break;
+            }
         }
 
+        driver.manage().window().setSize(new Dimension(1600, 1100));
+        driver.manage().window().setPosition(new Point(0, 0));
 
-
-    /*
-
-    Setting aftermethod.
-    It's also a library from TestNG that is being used once the test case execution is done.
-    it's mainly being used for the post preparation after executing a test case.
-
-     */
-
-        @AfterMethod
-        public void afterMethod () {
-            driver.quit();
-        }
+        // Use Duration overload — implicitlyWait(long, TimeUnit) is deprecated in Selenium 4
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
+    @AfterMethod
+    public void afterMethod() {
+        driver.quit();
+    }
+}
