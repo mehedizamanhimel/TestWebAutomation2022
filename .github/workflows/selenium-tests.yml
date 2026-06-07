@@ -31,7 +31,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      # ── 3. Chrome + ChromeDriver ───────────────────────────────────────────────
+      # ── 3. Chrome ──────────────────────────────────────────────────────────
       - name: Install Google Chrome (stable)
         uses: browser-actions/setup-chrome@v1
         with:
@@ -39,18 +39,18 @@ jobs:
 
       # ── 4. Run tests ───────────────────────────────────────────────────────
       # testData.properties sets browser=chrome-headless; BaseTestClass picks
-      # it up via the switch-case and applies --headless=new, --no-sandbox,
-      # and --disable-dev-shm-usage automatically.
+      # it up and applies --headless=new, --no-sandbox, --disable-dev-shm-usage.
       - name: Run TestNG tests via Maven
         run: mvn clean test -B
 
       # ── 5. Publish Surefire XML results ────────────────────────────────────
+      # Pinned to v1.9.1 — floating v1 tag has TypeError bug with TestNG XML
       - name: Publish Test Results
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@v1.9.1
         if: always()
         with:
           name: TestNG Results
-          path: target/surefire-reports/*.xml
+          path: "target/surefire-reports/TEST-*.xml"
           reporter: java-junit
           fail-on-error: false
 

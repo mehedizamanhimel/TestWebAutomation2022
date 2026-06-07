@@ -41,7 +41,7 @@ public class BaseTestClass {
             case "chrome-headless": {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions opts = new ChromeOptions();
-                // Use modern --headless=new (Chrome 112+); setHeadless(true) is removed
+                // --headless=new is the modern flag (Chrome 112+); setHeadless(true) is removed in Selenium 4
                 opts.addArguments("--headless=new", "--no-sandbox", "--disable-dev-shm-usage");
                 driver = new ChromeDriver(opts);
                 break;
