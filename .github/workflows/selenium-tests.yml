@@ -12,14 +12,14 @@ jobs:
     name: Run TestNG Selenium Tests (Headless Chrome)
     runs-on: ubuntu-latest
 
-    # Required for dorny/test-reporter to post inline check results
+    # dorny/test-reporter requires checks:write to post inline results
     permissions:
       checks: write
       contents: read
 
     steps:
 
-      # ── 1. Checkout ───────────────────────────────────────────────────────
+      # ── 1. Checkout ────────────────────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -31,13 +31,16 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      # ── 3. Chrome ──────────────────────────────────────────────────────────
+      # ── 3. Chrome + ChromeDriver ───────────────────────────────────────────────
       - name: Install Google Chrome (stable)
         uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: stable
 
       # ── 4. Run tests ───────────────────────────────────────────────────────
+      # testData.properties sets browser=chrome-headless; BaseTestClass picks
+      # it up via the switch-case and applies --headless=new, --no-sandbox,
+      # and --disable-dev-shm-usage automatically.
       - name: Run TestNG tests via Maven
         run: mvn clean test -B
 
